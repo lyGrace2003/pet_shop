@@ -20,6 +20,15 @@ final ButtonStyle buttonyellow = ElevatedButton.styleFrom(
   ),
 );
 
+final ButtonStyle buttonsmall = ElevatedButton.styleFrom(
+  minimumSize: const Size(200, 50), 
+  backgroundColor: mYellow,
+  elevation: 0,
+  shape: const RoundedRectangleBorder(
+    borderRadius: BorderRadius.all(Radius.circular(mBorderRadius),),
+  ),
+);
+
 final mBorder = OutlineInputBorder(
   borderRadius: BorderRadius.circular(mBorderRadius),
   borderSide: BorderSide.none,

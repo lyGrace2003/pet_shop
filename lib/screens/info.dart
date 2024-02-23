@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:pet_shop/main.dart';
 import 'package:pet_shop/util/app_style.dart';
 import 'package:pet_shop/util/size_config.dart';
 import '../model/cat_info_model.dart';
@@ -50,11 +48,12 @@ class _CatInfoState extends State<CatInfo> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("${widget.info.breed} Cat", style: mBold.copyWith(color: mBlack, fontSize: SizeConfig.blocksHorizontal!*7),),
+                            Text(widget.info.breed, style: mBold.copyWith(color: mBlack, fontSize: SizeConfig.blocksHorizontal!*7),softWrap: true,),
                             Row(
                               children: [
                                 Text(widget.info.location, style: mRegular.copyWith(color: mGrey, fontSize: SizeConfig.blocksHorizontal!*4),),
@@ -66,15 +65,18 @@ class _CatInfoState extends State<CatInfo> {
                             ),
                           ],
                         ),
-                      SizedBox(width: SizeConfig.blocksHorizontal!*22,),
                       Container(
                           height: 40,
                           width: 40,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(5),
                             color: mYellow,
-                            image: const DecorationImage(image: AssetImage("assets/Expand.png"))
                           ),
+                          child: IconButton(
+                            icon: const Icon(Icons.close_fullscreen_outlined, color: mWhite,),
+                            onPressed: (){
+                              Navigator.pop(context);
+                            },),
                         ),
                         ],
                       ),

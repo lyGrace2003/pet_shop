@@ -5,7 +5,6 @@ import 'package:pet_shop/screens/catalog.dart';
 import 'package:pet_shop/screens/home.dart';
 import 'package:pet_shop/screens/profile.dart';
 import 'package:pet_shop/util/app_style.dart';
-import 'package:pet_shop/util/size_config.dart';
 
 class Screens extends StatefulWidget {
   const Screens({super.key});
@@ -30,8 +29,8 @@ class _ScreensState extends State<Screens> {
       body:screens[_index],
         bottomNavigationBar: BottomNavigationBar(
           //doesnt work
-          selectedLabelStyle: TextStyle(color: const Color.fromRGBO(232, 190, 19, 1), fontSize: SizeConfig.blocksHorizontal!*3 ), 
-          unselectedLabelStyle: TextStyle(color:const Color.fromRGBO(124, 124, 124, 1), fontSize: SizeConfig.blocksHorizontal!*3),
+          selectedItemColor: const Color.fromRGBO(232, 190, 19, 1), 
+          unselectedItemColor:const Color.fromRGBO(124, 124, 124, 1),
           currentIndex:_index ,
           onTap: (value){
             setState(() {
@@ -62,7 +61,7 @@ class _ScreensState extends State<Screens> {
             BottomNavigationBarItem(
             icon: _index  == 3
                  ? const Icon(CupertinoIcons.person_alt_circle_fill, color: mYellow,)
-                 : const Icon(CupertinoIcons.person_alt_circle_fill, color: mGrey,),
+                 : const Icon(CupertinoIcons.person_alt_circle_fill , color: mGrey,),
               label: 'Profile',
             ),
           ],

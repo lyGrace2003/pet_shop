@@ -110,4 +110,26 @@ final List<Cat> initialData = [
 class CatProvider with ChangeNotifier {
   final List<Cat> _cat = initialData;
   List<Cat> get cat => _cat;
+
+  final List<Cat> _cartList = [];
+  List<Cat> get cartList => _cartList;
+
+  final List<Cat> _searchItems = [];
+  List<Cat> get searchItems => _searchItems;
+
+  void addToList(Cat cat){
+    _cartList.add(cat);
+    notifyListeners();
+  }
+
+  void removeFromList(Cat cat){
+    _cartList.remove(cat);
+    notifyListeners();
+  }
+
+  void searchFromList(String query){
+    _searchItems.clear();
+    _searchItems.addAll(_cat.where((cat) => cat.breed.toLowerCase().contains(query.toLowerCase())));
+    notifyListeners();
+  }
 }
