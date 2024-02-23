@@ -1,4 +1,3 @@
-import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -96,25 +95,9 @@ class _CatalogScreenState extends State<CatalogScreen> {
                   final endIndex = startIndex + 1;
                   return Row(
                     children: [
-                      if (startIndex < cats.length)
-                        Expanded(
-                          child: catItem(
-                            context,
-                            searchText.isEmpty ? cats : searchList,
-                            startIndex,
-                            cart,
-                          ),
-                        ),
-                      if (endIndex < cats.length) const SizedBox(width: 10), // Adjust spacing as needed
-                      if (endIndex < cats.length)
-                        Expanded(
-                          child: catItem(
-                            context,
-                            searchText.isEmpty ? cats : searchList,
-                            endIndex,
-                            cart,
-                          ),
-                        ),
+                      if (startIndex < (searchText.isEmpty ? cats.length : searchList.length))Expanded(child: catItem(context,searchText.isEmpty ? cats : searchList,startIndex,cart,),),
+                      if (endIndex < (searchText.isEmpty ? cats.length : searchList.length)) const SizedBox(width: 10), // Adjust spacing as needed
+                      if (endIndex < (searchText.isEmpty ? cats.length : searchList.length))Expanded(child: catItem(context,searchText.isEmpty ? cats : searchList,endIndex,cart,),),
                     ],
                   );
                 },
